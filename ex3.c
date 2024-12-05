@@ -127,7 +127,7 @@ int main() {
                             clearInputBuffer(); // clear the input buffer on invalid input
                             break;
                         }
-                        int dayFound = 0;
+                        
                         for (int j = 0; j < DAYS_IN_YEAR; j++) {
                             if (cube[j][i][0] == -1) {  // Check if day is empty for this brand
                                 cube[j][i][0] = suv;
