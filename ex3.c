@@ -114,33 +114,37 @@ int main() {
             }
             break;
 
-            case addAll:
-                // Populate a day of sales for all brands
-            {
+            case addAll: {
                 int suv, sedan, coupe, gt;
+                int day = days++; // Increment days to track consecutive input for new day
+
+                if (day >= DAYS_IN_YEAR) {
+                    printf("No more days available to add data.\n");
+                    days--; // Decrement to avoid exceeding bounds
+                    break;
+                }
+
                 printf("No data for brands Toyoga HyunNight Mazduh FolksVegan Key-Yuh\n");
                 printf("Please complete the data\n");
-                for (int i = 0; i < NUM_OF_BRANDS; i++) {
-                    printf("Enter sales data for brand %s (SUV, Sedan, Coupe, GT): ", brands[i]);
-                    if (scanf("%d %d %d %d", &suv, &sedan, &coupe, &gt) != 4) {
-                        printf("Invalid input! Please enter numeric values for sales data.\n");
-                        clearInputBuffer(); // clear the input buffer on invalid input
-                        break;
+
+                // Loop through all brands and get data
+                for (int brand = 0; brand < NUM_OF_BRANDS; brand++) {
+                    printf("Enter sales data for brand %s (SUV, Sedan, Coupe, GT): ", brands[brand]);
+                    if (scanf("%d %d %d %d", &suv, &sedan, &coupe, &gt) != 4 || suv < 0 || sedan < 0 || coupe < 0 || gt < 0) {
+                        printf("Invalid input! Please try again.\n");
+                        clearInputBuffer();
+                        brand--; // Retry current brand
+                        continue;
                     }
 
-                    for (int j = 0; j < DAYS_IN_YEAR; j++) {
-                        if (cube[j][i][0] == -1) {  // Check if day is empty for this brand
-                            cube[j][i][0] = suv;
-                            cube[j][i][1] = sedan;
-                            cube[j][i][2] = coupe;
-                            cube[j][i][3] = gt;
-                            printf("Sales for brand %s on day %d have been entered.\n", brands[i], j);
+                    // Populate the cube for the day and brand
+                    cube[day][brand][0] = suv;
+                    cube[day][brand][1] = sedan;
+                    cube[day][brand][2] = coupe;
+                    cube[day][brand][3] = gt;
 
-                            break;
-                        }
-                    }
+                    printf("Sales for brand %s on day %d have been entered.\n", brands[brand], day + 1);
                 }
-                days++;  // Increment days count
             }
             break;
 
@@ -212,12 +216,11 @@ int main() {
                 for (int brand = 0; brand < NUM_OF_BRANDS; brand++) {
                     printf("Sales for %s:\n", brands[brand]);
 
-                    // Loop through all days
-                    for (int day = 0; day < DAYS_IN_YEAR; day++) {
-                        // Check if data exists for this day and brand
-                        if (cube[day][brand][0] != -1) {
+                    // Loop through all days and check if data exists
+                    for (int day = 0; day < days; day++) { // Only iterate over days with entered data
+                        if (cube[day][brand][0] != -1) { // Ensure data exists for this brand on this day
                             printf("Day %d- SUV: %d Sedan: %d Coupe: %d GT: %d\n",
-                                   day + 1,  // Days are 1-based in the output
+                                   day + 1,
                                    cube[day][brand][0],
                                    cube[day][brand][1],
                                    cube[day][brand][2],
@@ -348,4 +351,3 @@ int main() {
         }
     }
 }
-
