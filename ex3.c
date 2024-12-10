@@ -26,13 +26,13 @@ char types[NUM_OF_TYPES][TYPES_NAMES] = {"SUV", "Sedan", "Coupe", "GT"};
 
 void printMenu(){
     printf("Welcome to the Cars Data Cube! What would you like to do?\n"
-           "1. Enter Daily Data For A Brand\n"
-           "2. Populate A Day Of Sales For All Brands\n"
-           "3. Provide Daily Stats\n"
-           "4. Print All Data\n"
-           "5. Provide Overall (simple) Insights\n"
-           "6. Provide Average Delta Metrics\n"
-           "7. exit\n");
+           "1.Enter Daily Data For A Brand\n"
+           "2.Populate A Day Of Sales For All Brands\n"
+           "3.Provide Daily Stats\n"
+           "4.Print All Data\n"
+           "5.Provide Overall (simple) Insights\n"
+           "6.Provide Average Delta Metrics\n"
+           "7.exit\n");
 }
 
 // Function to clean input buffer
@@ -372,7 +372,7 @@ break;
             break;
             case done:
                 // Exit program
-                    printf("Exiting program.\n");
+                    
             return 0;
 
             default:
