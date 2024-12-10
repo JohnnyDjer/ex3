@@ -182,7 +182,7 @@ int main() {
 
     while (!validDay) {
         // Prompt the user to enter a day
-        printf("What day would you like to analyze?\n", DAYS_IN_YEAR);
+        printf("What day would you like to analyze?\n");
 
         // Read input and validate
         if (scanf("%d", &day) != 1 || day < 1 || day > days) { // Validate against actual entered days
