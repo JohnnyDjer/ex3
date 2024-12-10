@@ -26,13 +26,13 @@ char types[NUM_OF_TYPES][TYPES_NAMES] = {"SUV", "Sedan", "Coupe", "GT"};
 
 void printMenu(){
     printf("Welcome to the Cars Data Cube! What would you like to do?\n"
-           "1. Enter Daily Data For A Brand\n"
-           "2. Populate A Day Of Sales For All Brands\n"
-           "3. Provide Daily Stats\n"
-           "4. Print All Data\n"
-           "5. Provide Overall (simple) Insights\n"
-           "6. Provide Average Delta Metrics\n"
-           "7. exit\n");
+           "1.Enter Daily Data For A Brand\n"
+           "2.Populate A Day Of Sales For All Brands\n"
+           "3.Provide Daily Stats\n"
+           "4.Print All Data\n"
+           "5.Provide Overall (simple) Insights\n"
+           "6.Provide Average Delta Metrics\n"
+           "7.exit\n");
 }
 
 // Function to clean input buffer
@@ -182,7 +182,7 @@ int main() {
 
     while (!validDay) {
         // Prompt the user to enter a day
-        printf("What day would you like to analyze? (1-%d): ", DAYS_IN_YEAR);
+        printf("What day would you like to analyze?\n");
 
         // Read input and validate
         if (scanf("%d", &day) != 1 || day < 1 || day > days) { // Validate against actual entered days
