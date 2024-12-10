@@ -26,13 +26,13 @@ char types[NUM_OF_TYPES][TYPES_NAMES] = {"SUV", "Sedan", "Coupe", "GT"};
 
 void printMenu(){
     printf("Welcome to the Cars Data Cube! What would you like to do?\n"
-           "1.Enter Daily Data For A Brand\n"
-           "2.Populate A Day Of Sales For All Brands\n"
-           "3.Provide Daily Stats\n"
-           "4.Print All Data\n"
-           "5.Provide Overall (simple) Insights\n"
-           "6.Provide Average Delta Metrics\n"
-           "7.exit\n");
+           "1. Enter Daily Data For A Brand\n"
+           "2. Populate A Day Of Sales For All Brands\n"
+           "3. Provide Daily Stats\n"
+           "4. Print All Data\n"
+           "5. Provide Overall (simple) Insights\n"
+           "6. Provide Average Delta Metrics\n"
+           "7. exit\n");
 }
 
 // Function to clean input buffer
@@ -182,7 +182,7 @@ int main() {
 
     while (!validDay) {
         // Prompt the user to enter a day
-        printf("What day would you like to analyze?\n");
+        printf("What day would you like to analyze? (1-%d): ", DAYS_IN_YEAR);
 
         // Read input and validate
         if (scanf("%d", &day) != 1 || day < 1 || day > days) { // Validate against actual entered days
@@ -227,7 +227,7 @@ int main() {
     }
 
     // Print the results
-    printf("In day %d:\n", day);  // Print the day as entered by the user (1 to 365)
+    printf("In day  number %d:\n", day);  // Print the day as entered by the user (1 to 365)
     printf("The sales total was %d\n", totalSales);
     printf("The best sold brand with %d sales was ", maxBrandSales);
     printBrand(mostSoldBrandIndex);  // Call function to print the brand name
@@ -319,11 +319,11 @@ break;
 
                 printf("The best-selling brand overall is ");
                 printBrand(bestBrandIndex);  // Print the best-selling brand
-                printf(": %d sales$\n", bestBrandSales);
+                printf(": %d$\n", bestBrandSales);
                 printf("The best-selling type of car is ");
                 printType(bestTypeIndex);  // Print the best-selling type of car
-                printf(": %d sales$\n", bestTypeSales);
-                printf("The most profitable day was day %d: %d sales$\n", mostProfitableDay + 1, maxSalesOnDay);
+                printf(": %d$\n", bestTypeSales);
+                printf("The most profitable day was day %d: %d$\n", mostProfitableDay + 1, maxSalesOnDay);
             }
             break;
             case deltas:
@@ -363,7 +363,7 @@ break;
 
                     if (deltaCount > 0) {
                         double avgDelta = totalDelta / deltaCount;
-                        printf("Brand: %s, Average Delta: %.2f\n", brands[i], avgDelta);
+                        printf("Brand: %s, Average Delta: %.f\n", brands[i], avgDelta);
                     } else {
                         printf("Brand: %s, Average Delta: N/A (not enough data)\n", brands[i]);
                     }
@@ -372,7 +372,7 @@ break;
             break;
             case done:
                 // Exit program
-                    
+
             return 0;
 
             default:
