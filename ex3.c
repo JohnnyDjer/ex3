@@ -7,6 +7,7 @@ Assignment: ex3
 #include <stdio.h>
 
 
+
 #define NUM_OF_BRANDS 5
 #define BRANDS_NAMES 15
 #define NUM_OF_TYPES 4
@@ -163,7 +164,7 @@ int main() {
         cube[days][brand][2] = coupe;
         cube[days][brand][3] = gt;
 
-       
+
 
         // Mark the brand as completed
         completedBrands[brand] = 1;
@@ -363,7 +364,7 @@ break;
 
                     if (deltaCount > 0) {
                         double avgDelta = totalDelta / deltaCount;
-                        printf("Brand: %s, Average Delta: %.f\n", brands[i], avgDelta);
+                        printf("Brand: %s, Average Delta: %f\n", brands[i], avgDelta);
                     } else {
                         printf("Brand: %s, Average Delta: N/A (not enough data)\n", brands[i]);
                     }
@@ -372,7 +373,7 @@ break;
             break;
             case done:
                 // Exit program
-
+    printf("Goodbye!\n");
             return 0;
 
             default:
@@ -381,5 +382,4 @@ break;
         }
     }
 }
-
 
