@@ -84,7 +84,7 @@ int main() {
                 // Enter daily data for a single brand
             {
                 int brand, suv, sedan, coupe, gt;
-                printf("Enter brand index (0-4) and 4 sales numbers (SUV, Sedan, Coupe, GT): ");
+
                 if (scanf("%d %d %d %d %d", &brand, &suv, &sedan, &coupe, &gt) != 5) {
                     printf("Invalid input! Please enter numeric values for brand index and sales data.\n");
                     clearInputBuffer(); // clear the input buffer on invalid input
@@ -163,7 +163,7 @@ int main() {
         cube[days][brand][2] = coupe;
         cube[days][brand][3] = gt;
 
-        printf("Sales for brand %s on day %d have been entered.\n", brands[brand], days + 1);
+       
 
         // Mark the brand as completed
         completedBrands[brand] = 1;
@@ -323,7 +323,7 @@ break;
                 printf("The best-selling type of car is ");
                 printType(bestTypeIndex);  // Print the best-selling type of car
                 printf(": %d$\n", bestTypeSales);
-                printf("The most profitable day was day %d: %d$\n", mostProfitableDay + 1, maxSalesOnDay);
+                printf("The most profitable day was day number %d: %d$\n", mostProfitableDay + 1, maxSalesOnDay);
             }
             break;
             case deltas:
@@ -381,4 +381,5 @@ break;
         }
     }
 }
+
 
